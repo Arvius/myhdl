@@ -189,6 +189,10 @@ class block(object):
         name = self.func.__name__ + str(self.calls)
         self.calls += 1
 
+        forbidden_chars = "<>"
+        for c in forbidden_chars:
+            name = name.replace(c, '')
+
         # See concerns above about uniqueifying
         name = _uniqueify_name(name)
 
